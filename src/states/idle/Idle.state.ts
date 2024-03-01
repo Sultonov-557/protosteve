@@ -9,5 +9,7 @@ export class IdleBehavior implements StateBehavior {
 	constructor(bot: Bot) {
 		this.bot = bot;
 	}
-
+	onStateEntered() {
+		console.log("entered idle state");
+	}
 }

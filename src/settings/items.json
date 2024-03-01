@@ -1,4 +1,5 @@
 [
-	{ "name": "wood", "count": 30 },
+	{ "name": "log", "count": 5 },
+	{ "name": "plank", "count": 30 },
 	{ "name": "crafting_table", "count": 1 }
 ]

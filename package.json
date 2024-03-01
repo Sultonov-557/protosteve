@@ -5,13 +5,13 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "tsc && node ./dist",
-		"dev": "tsc-watch --onSuccess 'node --watch ./dist'"
+		"dev": "tsc-watch --onSuccess \"node --watch ./dist\""
 	},
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"minecraft-data": "^3.62.0",
 		"mineflayer": "^4.20.0",
-		"mineflayer-collectblock": "^1.4.1",
 		"mineflayer-pathfinder": "^2.4.5",
 		"mineflayer-statemachine": "^1.7.0",
 		"mineflayer-tool": "^1.2.0"

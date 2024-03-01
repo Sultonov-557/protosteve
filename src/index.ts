@@ -1,18 +1,17 @@
 import { pathfinder } from "mineflayer-pathfinder";
 import { plugin as toolPlugin } from "mineflayer-tool";
 import { BotStateMachine, NestedStateMachine, StateMachineWebserver } from "mineflayer-statemachine";
-import { states } from "./states";
 import bot from "./bot";
 import transitions from "./transitions";
-
-const stateMachine = new NestedStateMachine(transitions, states.idle);
-const botStateMachine = new BotStateMachine(bot, stateMachine);
-const webserver = new StateMachineWebserver(bot, botStateMachine, 80);
-webserver.startServer();
+import { states } from "./states";
 
 bot.loadPlugin(pathfinder);
 bot.loadPlugin(toolPlugin);
 
-bot.on("spawn", () => {
+bot.once("spawn", () => {
+	const stateMachine = new NestedStateMachine(Object.values(transitions), states.idle);
+	const botStateMachine = new BotStateMachine(bot, stateMachine);
+	const webserver = new StateMachineWebserver(bot, botStateMachine, 80);
+	webserver.startServer();
 	console.log("bot spawned");
 });
